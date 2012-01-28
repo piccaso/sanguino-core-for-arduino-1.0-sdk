@@ -54,17 +54,28 @@ const static uint8_t SS   = 53;
 const static uint8_t MOSI = 51;
 const static uint8_t MISO = 50;
 const static uint8_t SCK  = 52;
+
+const static uint8_t SDA  = 20;
+const static uint8_t SCL  = 19;
+
 #elif defined(__AVR_ATmega644P__) || defined(__AVR_ATmega1284P__)
 const static uint8_t SS   = 4;
 const static uint8_t MOSI = 5;
 const static uint8_t MISO = 6;
 const static uint8_t SCK  = 7;
 
+const static uint8_t SDA  = 23;
+const static uint8_t SCL  = 22;
+
 #else
 const static uint8_t SS   = 10;
 const static uint8_t MOSI = 11;
 const static uint8_t MISO = 12;
 const static uint8_t SCK  = 13;
+
+// else what?
+//const static uint8_t SDA  = ?;
+//const static uint8_t SCL  = ?;
 #endif
 
 // On the ATmega1280, the addresses of some of the port registers are

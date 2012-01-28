@@ -269,7 +269,7 @@ void HardwareSerial::flush()
   _rx_buffer->head = _rx_buffer->tail;
 }
 
-void HardwareSerial::write(uint8_t c)
+size_t HardwareSerial::write(uint8_t c)
 {
   while (!((*_ucsra) & (1 << _udre)))
     ;

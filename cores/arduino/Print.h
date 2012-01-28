@@ -24,6 +24,7 @@
 #include <stdio.h> // for size_t
 
 #include "WString.h"
+#include "Printable.h"
 
 #define DEC 10
 #define HEX 16
@@ -34,13 +35,21 @@
 class Print
 {
   private:
+    int write_error;
     void printNumber(unsigned long, uint8_t);
     void printFloat(double, uint8_t);
+  protected:
+    void setWriteError(int err = 1) { write_error = err; }
   public:
-    virtual void write(uint8_t) = 0;
-    virtual void write(const char *str);
-    virtual void write(const uint8_t *buffer, size_t size);
-    
+    Print() : write_error(0) {}
+
+    int getWriteError() { return write_error; }
+    void clearWriteError() { setWriteError(0); }
+
+    virtual size_t write(uint8_t) = 0;
+    size_t write(const char *str) { return write((const uint8_t *)str, strlen(str)); }
+    virtual size_t write(const uint8_t *buffer, size_t size);
+
     void print(const String &);
     void print(const char[]);
     void print(char, int = BYTE);

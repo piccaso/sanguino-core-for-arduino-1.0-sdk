@@ -30,17 +30,13 @@
 // Public Methods //////////////////////////////////////////////////////////////
 
 /* default implementation: may be overridden */
-void Print::write(const char *str)
+size_t Print::write(const uint8_t *buffer, size_t size)
 {
-  while (*str)
-    write(*str++);
-}
-
-/* default implementation: may be overridden */
-void Print::write(const uint8_t *buffer, size_t size)
-{
-  while (size--)
-    write(*buffer++);
+  size_t n = 0;
+  while (size--) {
+    n += write(*buffer++);
+  }
+  return n;
 }
 
 void Print::print(const String &s)
