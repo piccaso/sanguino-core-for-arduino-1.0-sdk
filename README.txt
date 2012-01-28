@@ -1,0 +1,1 @@
+My attempt to integrate Sanguino to Arduino sdk 1.0
