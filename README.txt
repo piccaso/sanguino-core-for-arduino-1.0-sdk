@@ -1,1 +1,1 @@
-My attempt to integrate Sanguino to Arduino sdk 1.0
+My attempt to integrate Sanguino to Arduino 1.0 SDK.
